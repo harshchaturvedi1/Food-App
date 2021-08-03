@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="header">
+
+    </div>
+    <div style="margin-top: 2%; font-size: 20px; text-align: center;">
+        <input type="text" id="food" placeholder="search recipe"
+            style="width: 30%; height: 25px; padding: 10px; font-size: 20px;">
+        <button style="height: 45px; width: 100px;" id="search">search</button>
+    </div>
+
+    <div id="feed"></div>
+
+</body>
+
+</html>
+
+<script type="module">
+
+    import myNavbar from './components/navBar.js';
+    import { getdata, Get } from './scripts/showData.js';
+
+    // Module creates a scope to avoid name collisions.
+    // Either expose your function to window object
+    // Or use addEventListener to bind handler
+    myNavbar().then((data) => {
+        document.getElementById('header').innerHTML = data;
+    })
+    document.getElementById('search').addEventListener('click', () => {
+        let query = document.getElementById('food').value;
+        Get(query);
+    })
+
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="header">
+
+    </div>
+    <div id="feed"></div>
+
+
+</body>
+
+</html>
+
+<script type="module">
+
+    import myNavbar from './components/navBar.js';
+    import { getdata, Get } from './scripts/showData.js';
+    myNavbar().then((data) => {
+        document.getElementById('header').innerHTML = data;
+    })
+    Get('random');
+    // console.log(myNavbar)
+
+</script>
